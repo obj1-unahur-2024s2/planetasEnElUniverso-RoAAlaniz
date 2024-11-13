@@ -1,0 +1,31 @@
+import personas.*
+import construcciones.*
+import planeta.*
+
+describe "Pruebas de planetas del Universo: PARTE 1" {
+    // PLANETA
+    const unPlaneta = new Planeta(personas = [persona1, persona2, persona3, persona4], construcciones = [museo1, muralla1, muralla2])
+
+    // PERSONAS
+    const persona1 = new Persona(monedas = 31, edad = 26)
+    const persona2 = new Persona(monedas = 14, edad = 18)
+    const persona3= new Persona(monedas = 40, edad = 79)
+    const persona4= new Persona(monedas = 5, edad = 10)
+
+    // CONSTRUCCIONES
+    const museo1 = new Museo(superficieCubierta = 10, indiceImportancia = 20)
+    const muralla1 = new Muralla(longitud = 78)
+    const muralla2 = new Muralla(longitud = 150) 
+
+   
+  test "En la delegación diplomática hay tres personas." {
+    self.initialize()
+    assert.equals(3, unPlaneta.delegacionDiplomatica().size())
+  }
+  test "description" {
+    
+  }
+  
+}
+
+
