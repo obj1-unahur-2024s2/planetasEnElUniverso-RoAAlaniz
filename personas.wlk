@@ -8,7 +8,7 @@ class Persona {
     method cumplirAnios() {
         edad = edad + 1
     }
-    method recursosMonedas() = monedas
+    method monedas() = monedas
     method ganarMonedas(unaCant) {
         monedas = monedas + unaCant
     } 
@@ -53,7 +53,7 @@ class Constructor inherits Persona {
         return cantConstrucciones > 5
     }
     method construir(unPlaneta, tiempoConstruccion) {
-        unPlaneta.construcciones().add(region.construccionARealizar(tiempoConstruccion))
+        unPlaneta.construcciones().add(region.construccionARealizar(tiempoConstruccion, self))
     } 
     override method trabajar(tiempo, unPlaneta) {
         self.construir(unPlaneta, tiempo)
@@ -76,7 +76,7 @@ object costa{
 
 object llanura{
   method construccionARealizar(tiempoConstruccion, trabajador) {
-    if (trabajador.esDestacado()){
+    if (trabajador.esDestacada()){
             new Museo(superficieCubierta = tiempoConstruccion, indiceImportancia = trabajador.monedas() / 10)
         }else{
             new Muralla(longitud = tiempoConstruccion / 2)

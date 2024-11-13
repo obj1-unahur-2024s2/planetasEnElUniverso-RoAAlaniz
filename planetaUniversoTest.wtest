@@ -50,8 +50,9 @@ describe "Pruebas de planetas del Universo: PARTE 2" {
 
 
   test "Definir constructores que vivan en diferentes regiones y al menos un productor y probar que trabajen bien." {
-    unPlaneta2.personas().forEach({p => p.trabajar(6, p)})
+    unPlaneta2.personas().forEach({p => p.trabajar(6, unPlaneta2)})
     assert.equals(3, unPlaneta2.construcciones().size())
   }
+
 }
 
