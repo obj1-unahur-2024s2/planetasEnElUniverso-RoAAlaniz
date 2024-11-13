@@ -16,7 +16,7 @@ class Persona {
         monedas = (monedas - unaCant).max(0) 
     }
     method esDestacada() = edad.between(18, 65) or monedas > 30
-    method trabajar(tiempo, unPlaneta) 
+    method trabajar(tiempo, unPlaneta) {}
 }
 
 class Productor inherits Persona {
@@ -34,7 +34,7 @@ class Productor inherits Persona {
         else{self.gastarMonedas(1)}
     }
     method aprenderTecnica(unaTec) = tecnicas.add(unaTec)
-    method trabajar(tiempo, unPlaneta) {
+    override method trabajar(tiempo, unPlaneta) {
         if (unPlaneta.personas().contains(self)) //en el planeta, si las personas que contiene es la misma que pregunta
             self.realizarTecnica(tiempo, tecnicas.last())
     }
@@ -55,7 +55,7 @@ class Constructor inherits Persona {
     method construir(unPlaneta, tiempoConstruccion) {
         unPlaneta.construcciones().add(region.construccionARealizar(tiempoConstruccion))
     } 
-    method trabajar(tiempo, unPlaneta) {
+    override method trabajar(tiempo, unPlaneta) {
         self.construir(unPlaneta, tiempo)
         self.gastarMonedas(5)
     }

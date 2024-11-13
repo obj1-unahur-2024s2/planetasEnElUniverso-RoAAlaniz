@@ -31,4 +31,27 @@ describe "Pruebas de planetas del Universo: PARTE 1" {
   }
 }
 
+describe "Pruebas de planetas del Universo: PARTE 2" {
+    // PLANETA
+    const unPlaneta = new Planeta(personas = [persona1, persona2, persona3, persona4], construcciones = [museo1, muralla1, muralla2])
+    const unPlaneta2 = new Planeta(personas = [persona1, persona2, persona3, persona4]) 
+
+    // PERSONAS
+    const persona1 = new Productor(monedas = 31, edad = 26)
+    const persona2 = new Constructor(monedas = 14, edad = 18, cantConstrucciones = 5, region = costa, inteligencia = 17)
+    const persona3= new Constructor(monedas = 40, edad = 79, cantConstrucciones = 17, region = llanura, inteligencia = 36)
+    const persona4= new Constructor(monedas = 5, edad = 10, cantConstrucciones = 5, region = montana, inteligencia = 17)
+
+    // CONSTRUCCIONES
+    const museo1 = new Museo(superficieCubierta = 10, indiceImportancia = 20)
+    const muralla1 = new Muralla(longitud = 78)
+    const muralla2 = new Muralla(longitud = 150) 
+    const muralla3 = new Muralla(longitud = 2) 
+
+
+  test "Definir constructores que vivan en diferentes regiones y al menos un productor y probar que trabajen bien." {
+    unPlaneta2.personas().forEach({p => p.trabajar(6, p)})
+    assert.equals(3, unPlaneta2.construcciones().size())
+  }
+}
 
