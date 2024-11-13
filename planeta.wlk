@@ -13,8 +13,8 @@ class Planeta {
         }
         return personasDestacadas
     }
-    method esValioso() {
-      construcciones.sum({c => c.valor()}) > 100
+    method esValioso() { //ACORDATE DEL RETURNNNNN!!!!
+        return construcciones.sum({c => c.valor()}) > 100
     }
 
 }
